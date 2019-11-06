@@ -1,0 +1,6 @@
+# Project exclude paths
+/long-online-api/target/
+/long-online-common/target/
+/long-online-mapper/target/
+/long-online-pojo/target/
+/long-online-service/target/
