@@ -8,10 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="long-online-service" />
-        <module name="long-online-mapper" />
         <module name="long-online-api" />
         <module name="long-online-pojo" />
         <module name="long-online-common" />
+        <module name="long-online-mapper" />
       </profile>
     </annotationProcessing>
   </component>

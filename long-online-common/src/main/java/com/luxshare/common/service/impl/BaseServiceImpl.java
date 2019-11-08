@@ -16,7 +16,7 @@ import tk.mybatis.mapper.common.Mapper;
 public class BaseServiceImpl<T> implements BaseService<T> {
 
     @Autowired(required = false)
-    private Mapper<T> mapper;
+    protected Mapper<T> mapper;
 
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
