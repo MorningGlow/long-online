@@ -2,15 +2,16 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="long-online-service" />
-        <module name="long-online-api" />
         <module name="long-online-mapper" />
-        <module name="long-online-common" />
+        <module name="long-online-api" />
         <module name="long-online-pojo" />
+        <module name="long-online-common" />
       </profile>
     </annotationProcessing>
   </component>
