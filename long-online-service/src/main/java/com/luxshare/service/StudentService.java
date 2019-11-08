@@ -11,6 +11,13 @@ import com.luxshare.pojo.Student;
 */
 public interface StudentService extends BaseService<Student> {
 
+    void saveParent();
+
+    void saveChildren();
+
+    void saveChildren1();
+
+    void saveChildren2();
 }
 
 
