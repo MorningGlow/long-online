@@ -1,6 +1,7 @@
 package com.luxshare.service;
 
 import com.luxshare.common.service.BaseService;
+import com.luxshare.common.util.PageGridResult;
 import com.luxshare.pojo.Userinfo;
 
 /**
@@ -18,6 +19,15 @@ public interface UserinfoService extends BaseService<Userinfo> {
      * @return false/true
      */
     boolean existUserName(String userName);
+
+    /**
+     * 用户分页
+     *
+     * @param page       第几页
+     * @param pageSize   一页多少行
+     * @return           返回 分页结果集
+     */
+    PageGridResult page(Integer page, Integer pageSize);
 }
 
 

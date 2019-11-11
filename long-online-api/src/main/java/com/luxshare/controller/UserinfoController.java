@@ -1,6 +1,7 @@
 package com.luxshare.controller;
 
 import com.luxshare.common.response.BaseResult;
+import com.luxshare.common.util.PageGridResult;
 import com.luxshare.pojo.Userinfo;
 import com.luxshare.service.UserinfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,12 @@ public class UserinfoController {
         Map<String, Boolean> map = new HashMap<>();
         map.put("exist", userinfoService.existUserName(userName));
         return BaseResult.ok(map);
+    }
+
+    @GetMapping("/page")
+    public BaseResult<PageGridResult> page(@RequestParam Integer page, @RequestParam Integer pageSize) {
+        PageGridResult result = userinfoService.page(page, pageSize);
+        return BaseResult.ok(result);
     }
 }
 
