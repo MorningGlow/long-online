@@ -29,7 +29,7 @@ public class UserinfoServiceImpl extends BaseServiceImpl<Userinfo> implements Us
     }
 
     @Override
-    public PageGridResult page(Integer page, Integer pageSize) {
+    public PageGridResult<Userinfo> page(Integer page, Integer pageSize) {
 
         Example example = new Example(Userinfo.class);
         example.createCriteria();

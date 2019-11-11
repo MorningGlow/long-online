@@ -59,8 +59,8 @@ public class UserinfoController {
     }
 
     @GetMapping("/page")
-    public BaseResult<PageGridResult> page(@RequestParam Integer page, @RequestParam Integer pageSize) {
-        PageGridResult result = userinfoService.page(page, pageSize);
+    public BaseResult<PageGridResult<Userinfo>> page(@RequestParam Integer page, @RequestParam Integer pageSize) {
+        PageGridResult<Userinfo> result = userinfoService.page(page, pageSize);
         return BaseResult.ok(result);
     }
 }

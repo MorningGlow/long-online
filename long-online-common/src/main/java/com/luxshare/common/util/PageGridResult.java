@@ -17,7 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 @Accessors(chain = true)
-public class PageGridResult {
+public class PageGridResult<T> {
 
     // 当前页数
     @ApiModelProperty(value = "当前页数")
@@ -30,5 +30,5 @@ public class PageGridResult {
     private long records;
     // 每行显示的内容
     @ApiModelProperty(value = "数据集合(每行显示的内容)")
-    private List<?> rows;
+    private List<T> rows;
 }

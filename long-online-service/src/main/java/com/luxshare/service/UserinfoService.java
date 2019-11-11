@@ -23,11 +23,11 @@ public interface UserinfoService extends BaseService<Userinfo> {
     /**
      * 用户分页
      *
-     * @param page       第几页
-     * @param pageSize   一页多少行
-     * @return           返回 分页结果集
+     * @param page     第几页
+     * @param pageSize 一页多少行
+     * @return 返回 分页结果集
      */
-    PageGridResult page(Integer page, Integer pageSize);
+    PageGridResult<Userinfo> page(Integer page, Integer pageSize);
 }
 
 
