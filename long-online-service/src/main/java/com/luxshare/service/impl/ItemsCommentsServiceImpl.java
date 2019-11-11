@@ -1,8 +1,11 @@
 package com.luxshare.service.impl;
 
 import com.luxshare.common.service.impl.BaseServiceImpl;
+import com.luxshare.mapper.ItemsCommentsCustomDao;
 import com.luxshare.pojo.ItemsComments;
 import com.luxshare.service.ItemsCommentsService;
+import com.luxshare.vo.ItemContendWithUserInfoVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,6 +17,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class ItemsCommentsServiceImpl extends BaseServiceImpl<ItemsComments> implements ItemsCommentsService {
 
+    @Autowired(required = false)
+    private ItemsCommentsCustomDao itemsCommentsCustomDao;
+
+    @Override
+    public ItemContendWithUserInfoVO getItemContendWithUserInfo(String itemContendId) {
+        return itemsCommentsCustomDao.getItemContendWithUserInfo(itemContendId);
+    }
 }
 
 

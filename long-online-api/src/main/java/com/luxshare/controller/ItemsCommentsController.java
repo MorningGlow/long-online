@@ -3,6 +3,7 @@ package com.luxshare.controller;
 import com.luxshare.common.response.BaseResult;
 import com.luxshare.pojo.ItemsComments;
 import com.luxshare.service.ItemsCommentsService;
+import com.luxshare.vo.ItemContendWithUserInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,6 +42,11 @@ public class ItemsCommentsController {
     public BaseResult<String> deleteOne(@PathVariable String id) {
         itemscommentsService.deleteByPrimaryKey(id);
         return BaseResult.ok("删除一笔数据成功");
+    }
+
+    @GetMapping("/itemContendWithUserInfo")
+    public BaseResult<ItemContendWithUserInfoVO> getItemContendWithUserInfo(@RequestParam String itemContendId) {
+        return BaseResult.ok(itemscommentsService.getItemContendWithUserInfo(itemContendId));
     }
 }
 

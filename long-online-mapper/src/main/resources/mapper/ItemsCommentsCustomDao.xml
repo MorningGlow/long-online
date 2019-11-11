@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luxshare.mapper.ItemsCommentsCustomDao">
+
+    <resultMap id="ItemContendWithUserInfo" type="com.luxshare.vo.ItemContendWithUserInfoVO">
+        <id property="id" column="id"/>
+        <result property="itemId" column="itemId"/>
+        <result property="specName" column="specName"/>
+        <result property="content" column="content"/>
+        <result property="username" column="username"/>
+    </resultMap>
+    <select id="getItemContendWithUserInfo" resultMap="ItemContendWithUserInfo" parameterType="String">
+        select
+            ic.id as id,
+            ic.item_id as itemId,
+            ic.sepc_name specName,
+            ic.content as content,
+            u.username as username
+        from
+            items_comments ic
+        left join userinfo u on
+            ic.user_id = u.id
+        where
+            ic.id = #{itemContendId}
+    </select>
+</mapper>

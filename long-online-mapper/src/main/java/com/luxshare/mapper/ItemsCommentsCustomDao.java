@@ -1,16 +1,14 @@
-package com.luxshare.service;
+package com.luxshare.mapper;
 
-import com.luxshare.common.service.BaseService;
-import com.luxshare.pojo.ItemsComments;
 import com.luxshare.vo.ItemContendWithUserInfoVO;
 
 /**
-* 通用 Service 代码生成器
-*
-* @author lion hua
-* @since 2019-11-08 09:17:54
-*/
-public interface ItemsCommentsService extends BaseService<ItemsComments> {
+ * 通用 Mapper 代码生成器
+ *
+ * @author lion hua
+ * @since 2019-11-08 09:17:54
+ */
+public interface ItemsCommentsCustomDao {
 
     /**
      * 返回商品内容与用户相关信息
