@@ -4,8 +4,11 @@ import com.github.pagehelper.PageHelper;
 import com.luxshare.common.service.impl.BaseServiceImpl;
 import com.luxshare.common.util.PageGridResult;
 import com.luxshare.common.util.PageUtil;
+import com.luxshare.mapper.UserinfoCustomDao;
 import com.luxshare.pojo.Userinfo;
 import com.luxshare.service.UserinfoService;
+import com.luxshare.vo.UserinfoWithItemContentVO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -19,6 +22,9 @@ import java.util.List;
  */
 @Service
 public class UserinfoServiceImpl extends BaseServiceImpl<Userinfo> implements UserinfoService {
+
+    @Autowired(required = false)
+    private UserinfoCustomDao userinfoCustomDao;
 
     @Override
     public boolean existUserName(String userName) {
@@ -37,6 +43,21 @@ public class UserinfoServiceImpl extends BaseServiceImpl<Userinfo> implements Us
         PageHelper.startPage(page, pageSize);
         List<Userinfo> list = mapper.selectByExample(example);
         return PageUtil.setterPageGrid(list, page);
+    }
+
+    @Override
+    public Userinfo getUserInfoByUserName(String userName) {
+        return userinfoCustomDao.getUserInfoByUserName(userName);
+    }
+
+    @Override
+    public Userinfo getUserInfoByRealName(String realName) {
+        return userinfoCustomDao.getUserInfoByRealName(realName);
+    }
+
+    @Override
+    public UserinfoWithItemContentVO getAllItemCommentByUserinfoId(String userinfoId) {
+        return userinfoCustomDao.getAllItemCommentByUserinfoId(userinfoId);
     }
 }
 

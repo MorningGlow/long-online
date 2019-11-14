@@ -14,7 +14,7 @@ import javax.persistence.Table;
 /**
  * 表名：category
  * 表注释：商品分类
-*/
+ */
 @Getter
 @Setter
 @Accessors(chain = true)
@@ -39,9 +39,9 @@ public class Category {
 
     /**
      * 分类类型 分类得类型，
-1:一级大分类
-2:二级分类
-3:三级小分类
+     * 1:一级大分类
+     * 2:二级分类
+     * 3:三级小分类
      */
     @Column(name = "`type`")
     @ApiModelProperty("分类类型 分类得类型，1:一级大分类2:二级分类3:三级小分类")
@@ -116,7 +116,7 @@ public class Category {
 
     /**
      * 带默认值的实例
-    */
+     */
     public static Category defaultInstance() {
         Category instance = new Category();
         return instance;

@@ -4,6 +4,8 @@ import com.luxshare.common.service.BaseService;
 import com.luxshare.pojo.ItemsComments;
 import com.luxshare.vo.ItemContendWithUserInfoVO;
 
+import java.util.Map;
+
 /**
 * 通用 Service 代码生成器
 *
@@ -19,6 +21,13 @@ public interface ItemsCommentsService extends BaseService<ItemsComments> {
      * @return ItemContendWithUserInfoVO
      */
     ItemContendWithUserInfoVO getItemContendWithUserInfo(String itemContendId);
+
+
+    /**
+     * 批量插入商品评价表
+     * @param map map
+     */
+    void saveItemContents(Map<String, Object> map);
 }
 
 

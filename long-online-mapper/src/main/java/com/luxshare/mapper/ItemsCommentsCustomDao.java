@@ -2,6 +2,8 @@ package com.luxshare.mapper;
 
 import com.luxshare.vo.ItemContendWithUserInfoVO;
 
+import java.util.Map;
+
 /**
  * 通用 Mapper 代码生成器
  *
@@ -17,6 +19,13 @@ public interface ItemsCommentsCustomDao {
      * @return ItemContendWithUserInfoVO
      */
     ItemContendWithUserInfoVO getItemContendWithUserInfo(String itemContendId);
+
+
+    /**
+     * 批量插入商品评价表
+     * @param map map
+     */
+    void saveItemContents(Map<String, Object> map);
 }
 
 

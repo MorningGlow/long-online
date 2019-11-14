@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.luxshare.mapper.UserinfoCustomDao">
+
+    <resultMap id="baseResultMap" type="com.luxshare.pojo.Userinfo">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="nickname" column="nickname"/>
+        <result property="realname" column="realname"/>
+        <result property="face" column="face"/>
+        <result property="mobile" column="mobile"/>
+        <result property="email" column="email"/>
+        <result property="birthday" column="birthday"/>
+        <result property="createdTime" column="createdTime"/>
+    </resultMap>
+
+    <select id="getUserInfoByUserName" parameterType="String" resultMap="baseResultMap">
+        select
+            id,
+            username,
+            password,
+            realname,
+            created_time,
+            updated_time
+        from
+            userinfo u
+        where
+            u.username = #{userName}
+    </select>
+
+    <resultMap id="userWithAllItemComment" type="com.luxshare.vo.UserinfoWithItemContentVO">
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="nickname" column="nickname"/>
+        <result property="face" column="face"/>
+        <result property="createdTime" column="createdTime"/>
+        <result property="updatedTime" column="updatedTime"/>
+        <collection property="list" ofType="com.luxshare.vo.ItemContentVO">
+            <result property="itemName" column="itemName"/>
+            <result property="commentLevel" column="commentLevel"/>
+            <result property="content" column="content"/>
+        </collection>
+    </resultMap>
+    <select id="getAllItemCommentByUserinfoId" parameterType="String" resultMap="userWithAllItemComment">
+        select
+            u.username as username,
+            u.password as password,
+            u.nickname as nickname,
+            u.face as face ,
+            u.created_time as createdTime,
+            u.updated_time as updatedTime,
+            ic.item_name as itemName,
+            ic.comment_level as commentLevel,
+            ic.content as content
+        from
+            userinfo u
+        left join items_comments ic on
+            ic.user_id = u.id
+        where
+            u.id = #{userinfoId}
+    </select>
+</mapper>
