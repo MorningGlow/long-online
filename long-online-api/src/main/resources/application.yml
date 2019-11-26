@@ -42,8 +42,8 @@ spring:
 mybatis:
   type-aliases-package: com.luxshare.pojo  # 所有POJO类所在的包路径
   mapper-locations: classpath:mapper/*.xml # mapper映射文件
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 输出日志(生产时关闭)
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 输出日志(生产时关闭)
 
 
 ############################################################
@@ -71,4 +71,5 @@ pagehelper:
 logging:
   level:
     root: info
-    org.springframework.web.servlet.mvc.method.annotation: trace
+#    org.springframework.web.servlet.mvc.method.annotation: trace
+#    com.luxshare.interceptors.PerformanceInterceptor: debug # 生产中使用有一定的性能损耗,仅用于调试与测试环境
